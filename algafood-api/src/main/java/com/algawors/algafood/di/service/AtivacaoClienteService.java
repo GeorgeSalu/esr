@@ -1,11 +1,11 @@
 package com.algawors.algafood.di.service;
 
 import com.algawors.algafood.di.modelo.Cliente;
-import com.algawors.algafood.di.notificacao.NotificacadorEmail;
+import com.algawors.algafood.di.notificacao.NotificadorEmail;
 
 public class AtivacaoClienteService {
 
-	private NotificacadorEmail notificador;
+	private NotificadorEmail notificador;
 	
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
