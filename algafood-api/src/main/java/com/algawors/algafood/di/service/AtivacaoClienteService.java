@@ -9,16 +9,8 @@ import com.algawors.algafood.di.notificacao.Notificador;
 @Component
 public class AtivacaoClienteService {
 
+	@Autowired
 	private Notificador notificador;
-	
-	@Autowired(required = false)
-	public AtivacaoClienteService(Notificador notificador) {
-		this.notificador = notificador;
-	}
-	
-	public AtivacaoClienteService(String qualquer) {
-		
-	}
 
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
