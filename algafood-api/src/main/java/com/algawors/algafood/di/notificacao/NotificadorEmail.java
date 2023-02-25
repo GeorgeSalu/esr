@@ -18,7 +18,7 @@ public class NotificadorEmail implements Notificador {
 			mensagem = mensagem.toUpperCase();
 		}
 		
-		System.out.printf("Notificando %s atraves do email %s usando SMTP $s: %s\n",
+		System.out.printf("Notificando %s atraves do email %s usando SMTP %s: %s\n",
 				cliente.getNome(), cliente.getEmail(), this.hostServidorSmtp, mensagem);
 	}
 
