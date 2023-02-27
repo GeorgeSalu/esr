@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties("notificador.email")
-public class NotiificadorProperties {
+public class NotificadorProperties {
 
 	/**
 	 * Host do servidor de email

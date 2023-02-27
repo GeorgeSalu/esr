@@ -10,7 +10,7 @@ import com.algawors.algafood.di.modelo.Cliente;
 public class NotificadorEmail implements Notificador {
 	
 	@Autowired
-	private NotiificadorProperties properties;
+	private NotificadorProperties properties;
 	
 	@Override
 	public void notificar(Cliente cliente,String mensagem) {
