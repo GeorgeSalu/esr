@@ -66,4 +66,9 @@ public class Restaurante {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Restaurante [id=" + id + ", nome=" + nome + ", taxaFrete=" + taxaFrete + "]";
+	}
+
 }
