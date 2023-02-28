@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.algawors.algafood.domain.model.Cozinha;
 
@@ -19,5 +20,10 @@ public class CadastroCozinha {
 	public List<Cozinha> listar() {
 		TypedQuery<Cozinha> query =	manager.createQuery("from Cozinha", Cozinha.class);
 		return query.getResultList();
+	}
+	
+	@Transactional
+	public Cozinha adicionar(Cozinha cozinha) {
+		return manager.merge(cozinha);
 	}
 }
