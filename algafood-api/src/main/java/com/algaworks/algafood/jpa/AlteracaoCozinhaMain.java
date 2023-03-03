@@ -22,7 +22,7 @@ public class AlteracaoCozinhaMain {
 		cozinha.setId(1L);
 		cozinha.setNome("brasileira");
 		
-		cadastroCozinha.adicionar(cozinha);
+		cadastroCozinha.salvar(cozinha);
 		
 	}
 }
