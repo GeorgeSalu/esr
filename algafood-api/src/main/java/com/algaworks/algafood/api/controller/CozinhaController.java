@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.algaworks.algafood.api.model.CozinhaXmlWrapper;
 import com.algaworks.algafood.domain.model.Cozinha;
-import com.algaworks.algafood.domain.model.CozinhaXmlWrapper;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
 
 @RestController
