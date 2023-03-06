@@ -24,9 +24,9 @@ public class CadastroCozinhaService {
 		try {
 			cozinhaRepository.remover(cozinhaId);
 		}catch (EmptyResultDataAccessException e) {
-			throw new EntidadeNaoEncontradaException(String.format("Não existe um cadastro de cozinha com o codigo d",cozinhaId));
+			throw new EntidadeNaoEncontradaException(String.format("Não existe um cadastro de cozinha com o codigo %d",cozinhaId));
 		}catch (DataIntegrityViolationException e) {
-			throw new EntidadeEmUsoException(String.format("Cozinha de codigo d não pode ser removida, pois esta em uso ", cozinhaId));
+			throw new EntidadeEmUsoException(String.format("Cozinha de codigo %d não pode ser removida, pois esta em uso ", cozinhaId));
 		}
 	}
 }
