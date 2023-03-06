@@ -26,7 +26,7 @@ public class RestauranteController {
 	private RestauranteRepository restauranteRepository;
 	
 	@Autowired
-	private CadastroRestauranteService cadastroRestaurant;
+	private CadastroRestauranteService cadastroRestaurante;
 	
 	@GetMapping
 	public List<Restaurante> listar() {
@@ -47,7 +47,7 @@ public class RestauranteController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public ResponseEntity<?> adicionar(@RequestBody Restaurante restaurante) {
 		try {
-			restaurante = cadastroRestaurant.salvar(restaurante);
+			restaurante = cadastroRestaurante.salvar(restaurante);
 			
 			return ResponseEntity.status(HttpStatus.CREATED).body(restaurante);
 		} catch (EntidadeNaoEncontradaException e) {
