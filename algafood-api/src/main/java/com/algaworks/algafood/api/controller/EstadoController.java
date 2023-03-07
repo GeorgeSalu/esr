@@ -55,8 +55,7 @@ public class EstadoController {
 	}
 	
 	@PutMapping("/{estadoId}")
-	public ResponseEntity<Estado> atualizar(@PathVariable Long estadoId,
-			@RequestBody Estado estado) {
+	public ResponseEntity<Estado> atualizar(@PathVariable Long estadoId,@RequestBody Estado estado) {
 		Estado estadoAtual = estadoRepository.buscar(estadoId);
 		
 		if (estadoAtual != null) {
@@ -79,8 +78,7 @@ public class EstadoController {
 			return ResponseEntity.notFound().build();
 			
 		} catch (EntidadeEmUsoException e) {
-			return ResponseEntity.status(HttpStatus.CONFLICT)
-					.body(e.getMessage());
+			return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
 		}
 	}
 	
