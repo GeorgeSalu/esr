@@ -40,12 +40,12 @@ public class TesteController {
 	}
 	
 	@GetMapping("/restaurantes/por-nome")
-	public List<Restaurante> restaurantePorTazxaFrete(String nome,Long cozinhaId) {
+	public List<Restaurante> restaurantePorTaxaFrete(String nome,Long cozinhaId) {
 		return restauranteRepository.findByNomeContainingAndCozinhaId(nome, cozinhaId);
 	}
 	
 	@GetMapping("/restaurantes/primeiro-por-nome")
-	public Optional<Restaurante> restaurantePorTazxaFrete(String nome) {
+	public Optional<Restaurante> restaurantePorTaxaFrete(String nome) {
 		return restauranteRepository.findFirstRestauranteByNomeContaining(nome);
 	}
 	
