@@ -43,5 +43,20 @@ public class TesteController {
 	public List<Restaurante> restaurantePorTazxaFrete(String nome,Long cozinhaId) {
 		return restauranteRepository.findByNomeContainingAndCozinhaId(nome, cozinhaId);
 	}
+	
+	@GetMapping("/restaurantes/primeiro-por-nome")
+	public Optional<Restaurante> restaurantePorTazxaFrete(String nome) {
+		return restauranteRepository.findFirstRestauranteByNomeContaining(nome);
+	}
+	
+	@GetMapping("/restaurantes/top2-por-nome")
+	public boolean restaurantesTop2PorNome(String nome) {
+		return cozinhaRepository.existsByNome(nome);
+	}
+	
+	@GetMapping("/restaurantes/exists")
+	public List<Restaurante> cozinhaExists(String nome) {
+		return restauranteRepository.findTop2ByNomeContaining(nome);
+	}
 }
 
