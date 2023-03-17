@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -56,6 +57,10 @@ public class Restaurante {
 	@ManyToMany
 	@JoinTable(name = "restaurante_forma_pagamento", joinColumns = @JoinColumn(name = "restaurante_id"), inverseJoinColumns = @JoinColumn(name = "forma_pagamento_id"))
 	private List<FormaPagamento> formasPagamentos = new ArrayList<>();
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "restaurante")
+	private List<Produto> produtos = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -120,6 +125,14 @@ public class Restaurante {
 	public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
 		this.dataAtualizacao = dataAtualizacao;
 	}
+	
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
 
 	@Override
 	public int hashCode() {
@@ -150,7 +163,7 @@ public class Restaurante {
 	public String toString() {
 		return "Restaurante [id=" + id + ", nome=" + nome + ", taxaFrete=" + taxaFrete + ", cozinha=" + cozinha
 				+ ", endereco=" + endereco + ", dataCadastro=" + dataCadastro + ", dataAtualizacao=" + dataAtualizacao
-				+ ", formasPagamentos=" + formasPagamentos + "]";
+				+ ", formasPagamentos=" + formasPagamentos + ", produtos=" + produtos + "]";
 	}
 
 }
