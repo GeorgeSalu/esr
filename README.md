@@ -1,6 +1,6 @@
-##### Especialista Spring REST - algaworks
+### Especialista Spring REST - algaworks
 
-### Tecnologia
+#### Tecnologia
 
 Estas são as tecnologias usadas no projeto:
 
