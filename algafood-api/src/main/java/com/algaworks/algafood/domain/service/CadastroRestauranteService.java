@@ -11,8 +11,6 @@ import com.algaworks.algafood.domain.repository.RestauranteRepository;
 @Service
 public class CadastroRestauranteService {
 
-	private static final String MSG_RESTAURANTE_NAO_ENCONTRADO = "Não existe um cadastro de restaurante com código %d";
-
 	@Autowired
 	private RestauranteRepository restauranteRepository;
 
