@@ -10,5 +10,5 @@ Estas são as tecnologias usadas no projeto:
 * MySql Database
 * Maven
 
-## Diagram
+#### Diagrama de classes
 ![Diagrama de Classes](https://github.com/GeorgeSalu/esr/diagrama-de-classes-de-dominio.jpg)
