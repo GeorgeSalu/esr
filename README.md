@@ -21,9 +21,8 @@ Estas são as tecnologias usadas no projeto:
 - DDD
 - Tratamento de exceções
 
-#### Versioning
+#### Versão
 
 1.0.0.0
-
 
 Obrigada por visitar!
