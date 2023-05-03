@@ -13,6 +13,8 @@ Estas são as tecnologias usadas no projeto:
 #### Diagrama de classes
 ![Diagrama de Classes](https://github.com/GeorgeSalu/esr/diagrama-de-classes-de-dominio.jpg)
 
+*propriedade da Algaworks.
+
 #### Features
 
 - Princípios de design de APIs Rest
