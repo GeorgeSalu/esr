@@ -17,7 +17,7 @@ Estas são as tecnologias usadas no projeto:
 
 *propriedade da Algaworks.
 
-#### Features
+#### Características
 
 - Princípios de design de APIs Rest
 - Hateoas
@@ -28,5 +28,10 @@ Estas são as tecnologias usadas no projeto:
 #### Versão
 
 1.0.0.0
+
+#### Autores
+
+* **George**: @GeorgeSalu (https://github.com/GeorgeSalu)
+* **Algaworks**: @AlgaWorks (https://github.com/algaworks)
 
 Obrigada por visitar!
