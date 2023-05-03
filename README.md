@@ -8,6 +8,8 @@ Estas são as tecnologias usadas no projeto:
 * Spring Framework
 * Spring Boot
 * MySql Database
+* Eclipse IDE
+* Postman
 * Maven
 
 #### Diagrama de classes
