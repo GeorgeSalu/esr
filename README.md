@@ -7,7 +7,13 @@ Estas são as tecnologias usadas no projeto:
 * Java 11
 * Spring Framework
 * Spring Boot
-* MySql Database
+* Spring Data jpa
+* Model mapper
+* Spring Fox
+* Spring Security
+* Flyway
+* Docker
+* MySql Database 8
 * Eclipse IDE
 * Postman
 * Maven
