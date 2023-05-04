@@ -1,6 +1,6 @@
 ### Especialista Spring REST - algaworks
 
-#### Tecnologia
+#### Tecnologia:
 
 Estas são as tecnologias usadas no projeto:
 
@@ -12,12 +12,12 @@ Estas são as tecnologias usadas no projeto:
 * Postman
 * Maven
 
-#### Diagrama de classes
+#### Diagrama de classes:
 ![Diagrama de Classes](https://github.com/GeorgeSalu/esr/diagrama-de-classes-de-dominio.jpg)
 
 *propriedade da Algaworks.
 
-#### Características
+#### Características:
 
 - Princípios de design de APIs Rest
 - Hateoas
@@ -25,11 +25,11 @@ Estas são as tecnologias usadas no projeto:
 - DDD
 - Tratamento de exceções
 
-#### Versão
+#### Versão:
 
 1.0.0.0
 
-#### Autores
+#### Autores:
 
 * **George**: @GeorgeSalu (https://github.com/GeorgeSalu)
 * **Algaworks**: @AlgaWorks (https://github.com/algaworks)
