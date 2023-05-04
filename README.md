@@ -14,6 +14,7 @@ Estas são as tecnologias usadas no projeto:
 * Flyway
 * Docker
 * MySql Database 8
+* Aws
 * Eclipse IDE
 * Postman
 * Maven
