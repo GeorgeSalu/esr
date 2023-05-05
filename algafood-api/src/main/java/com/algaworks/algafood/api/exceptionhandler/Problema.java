@@ -23,4 +23,9 @@ public class Problema {
 		this.mensagem = mensagem;
 	}
 
+	@Override
+	public String toString() {
+		return "Problema [dataHora=" + dataHora + ", mensagem=" + mensagem + "]";
+	}
+
 }
