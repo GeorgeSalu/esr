@@ -76,25 +76,6 @@ public class CidadeController {
 		cadastroCidade.excluir(cidadeId);	
 	}
 	
-	@ExceptionHandler(EntidadeNaoEncontradaException.class)
-	public ResponseEntity<?> tratarEstadoNaoEncontradoException(EntidadeNaoEncontradaException e) {
-		Problema problema = new Problema();
-		problema.setDataHora(LocalDateTime.now());
-		problema.setMensagem(e.getMessage());
-		
-		
-		return ResponseEntity.status(HttpStatus.NOT_FOUND)
-				.body(problema);
-	}
 	
-	@ExceptionHandler(NegocioException.class)
-	public ResponseEntity<?> tratarNegocioException(NegocioException e) {
-		Problema problema = new Problema();
-		problema.setDataHora(LocalDateTime.now());
-		problema.setMensagem(e.getMessage());
-		
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-				.body(problema);
-	}
 	
 }
