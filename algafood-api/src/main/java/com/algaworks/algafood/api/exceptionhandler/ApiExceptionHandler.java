@@ -18,44 +18,39 @@ import com.algaworks.algafood.domain.exception.NegocioException;
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(EntidadeNaoEncontradaException.class)
-	public ResponseEntity<?> tratarEstadoNaoEncontradoException(
-			EntidadeNaoEncontradaException ex, WebRequest request) {
-		
+	public ResponseEntity<?> tratarEstadoNaoEncontradoException(EntidadeNaoEncontradaException ex, WebRequest request) {
 		return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
-	}	
-	
+	}
+
 	@ExceptionHandler(EntidadeEmUsoException.class)
-	public ResponseEntity<?> tratarEntidadeEmUsoException(
-			EntidadeEmUsoException ex, WebRequest request) {
-		
+	public ResponseEntity<?> tratarEntidadeEmUsoException(EntidadeEmUsoException ex, WebRequest request) {
 		return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(), HttpStatus.CONFLICT, request);
 	}
-	
+
 	@ExceptionHandler(NegocioException.class)
-	public ResponseEntity<?> tratarNegocioException(NegocioException ex , WebRequest request) {
+	public ResponseEntity<?> tratarNegocioException(NegocioException ex, WebRequest request) {
 		return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(), HttpStatus.CONFLICT, request);
 	}
-	
+
 	@Override
 	protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers,
 			HttpStatus status, WebRequest request) {
 
-		if(body == null) {			
+		if (body == null) {
 			Problema problema = new Problema();
 			problema.setDataHora(LocalDateTime.now());
 			problema.setMensagem(status.getReasonPhrase());
-			
+
 			body = problema;
-		} else if(body instanceof String) {
+		} else if (body instanceof String) {
 			Problema problema = new Problema();
 			problema.setDataHora(LocalDateTime.now());
 			problema.setMensagem((String) body);
-			
+
 			body = problema;
 		}
-		
+
 		return super.handleExceptionInternal(ex, body, headers, status, request);
 	}
-	
-}
 
+}
