@@ -1,7 +1,5 @@
 package com.algaworks.algafood.api.exceptionhandler;
 
-import java.time.LocalDateTime;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +23,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		String details = ex.getMessage();
 		
 		Problem problem = createProblem(status, problemType, details);
-		
-//		Problem problema = new Problem();
-//		problema.setType("https://algafood.com.br/entidade-nao-encontrada");
-//		problema.setTitle("Endidade não enontrada");
-//		problema.setDetail(ex.getMessage());
-//		problema.setStatus(status.value());
 		
 		return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
 	}
