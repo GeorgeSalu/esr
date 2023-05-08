@@ -16,7 +16,7 @@ import com.algaworks.algafood.domain.exception.NegocioException;
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(EntidadeNaoEncontradaException.class)
-	public ResponseEntity<?> tratarEstadoNaoEncontradoException(EntidadeNaoEncontradaException ex, WebRequest request) {
+	public ResponseEntity<?> tratarEntidadeNaoEncontradaException(EntidadeNaoEncontradaException ex, WebRequest request) {
 		
 		HttpStatus status = HttpStatus.NOT_FOUND;
 		ProblemType problemType = ProblemType.ENTIDADE_NAO_ENCONTRADA;
