@@ -16,14 +16,15 @@ import com.algaworks.algafood.domain.exception.NegocioException;
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(EntidadeNaoEncontradaException.class)
-	public ResponseEntity<?> handleEntidadeNaoEncontradaException(EntidadeNaoEncontradaException ex, WebRequest request) {
-		
+	public ResponseEntity<?> handleEntidadeNaoEncontradaException(EntidadeNaoEncontradaException ex,
+			WebRequest request) {
+
 		HttpStatus status = HttpStatus.NOT_FOUND;
 		ProblemType problemType = ProblemType.ENTIDADE_NAO_ENCONTRADA;
 		String details = ex.getMessage();
-		
+
 		Problem problem = createProblem(status, problemType, details);
-		
+
 		return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
 	}
 
@@ -51,14 +52,14 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 			Problem problema = new Problem();
 			problema.setTitle((String) body);
 			problema.setStatus(status.value());
-			
+
 			body = problema;
 		}
 
 		return super.handleExceptionInternal(ex, body, headers, status, request);
 	}
-	
-	private Problem createProblem(HttpStatus status,ProblemType problemType, String details) {
+
+	private Problem createProblem(HttpStatus status, ProblemType problemType, String details) {
 		Problem problema = new Problem();
 		problema.setType(problemType.getUri());
 		problema.setTitle(problemType.getTitle());
