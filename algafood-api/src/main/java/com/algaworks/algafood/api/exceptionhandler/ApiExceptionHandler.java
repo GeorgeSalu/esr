@@ -19,7 +19,20 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(EntidadeNaoEncontradaException.class)
 	public ResponseEntity<?> tratarEstadoNaoEncontradoException(EntidadeNaoEncontradaException ex, WebRequest request) {
-		return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+		
+		HttpStatus status = HttpStatus.NOT_FOUND;
+		ProblemType problemType = ProblemType.ENTIDADE_NAO_ENCONTRADA;
+		String details = ex.getMessage();
+		
+		Problem problem = createProblem(status, problemType, details);
+		
+//		Problem problema = new Problem();
+//		problema.setType("https://algafood.com.br/entidade-nao-encontrada");
+//		problema.setTitle("Endidade não enontrada");
+//		problema.setDetail(ex.getMessage());
+//		problema.setStatus(status.value());
+		
+		return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
 	}
 
 	@ExceptionHandler(EntidadeEmUsoException.class)
@@ -37,20 +50,29 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 			HttpStatus status, WebRequest request) {
 
 		if (body == null) {
-			Problema problema = new Problema();
-			problema.setDataHora(LocalDateTime.now());
-			problema.setMensagem(status.getReasonPhrase());
+			Problem problema = new Problem();
+			problema.setTitle(status.getReasonPhrase());
+			problema.setStatus(status.value());
 
 			body = problema;
 		} else if (body instanceof String) {
-			Problema problema = new Problema();
-			problema.setDataHora(LocalDateTime.now());
-			problema.setMensagem((String) body);
-
+			Problem problema = new Problem();
+			problema.setTitle((String) body);
+			problema.setStatus(status.value());
+			
 			body = problema;
 		}
 
 		return super.handleExceptionInternal(ex, body, headers, status, request);
+	}
+	
+	private Problem createProblem(HttpStatus status,ProblemType problemType, String details) {
+		Problem problema = new Problem();
+		problema.setType(problemType.getUri());
+		problema.setTitle(problemType.getTitle());
+		problema.setDetail(details);
+		problema.setStatus(status.value());
+		return problema;
 	}
 
 }
