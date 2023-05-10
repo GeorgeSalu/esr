@@ -21,7 +21,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 
 		ProblemType problemType = ProblemType.MENSAGEM_INCOMPREENSIVEL;
-		String details = "O corpo da requisição está invalido. Verifique erro de sintaxe";
+		String details = "O corpo da requisição está invalido.verifique erro de sintaxe";
 
 		Problem problem = createProblem(status, problemType, details);
 
