@@ -1,5 +1,6 @@
 package com.algaworks.algafood.api.exceptionhandler;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.algaworks.algafood.domain.exception.EntidadeEmUsoException;
 import com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.algaworks.algafood.domain.exception.NegocioException;
+import com.fasterxml.jackson.databind.JsonMappingException.Reference;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 
 @ControllerAdvice
@@ -41,9 +43,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	private ResponseEntity<Object> handleInvalidFormatException(InvalidFormatException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		
-		String path = ex.getPath().stream()
-				.map(ref -> ref.getFieldName())
-				.collect(Collectors.joining("."));
+		String path = joinPath(ex.getPath());
 		
 		ProblemType problemType = ProblemType.MENSAGEM_INCOMPREENSIVEL;
 		String details = String.format("A propriedade '%s' recebeu o valor '%s',  "
@@ -120,6 +120,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		problema.setDetail(details);
 		problema.setStatus(status.value());
 		return problema;
+	}
+	
+	private String joinPath(List<Reference> references) {
+		return references.stream()
+					.map(ref -> ref.getFieldName())
+					.collect(Collectors.joining("."));
 	}
 
 }
